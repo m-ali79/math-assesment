@@ -99,9 +99,3 @@ export default function Home() {
     </div>
   );
 }
-
-// genearte the letx json from gemini
-// seed that to db
-// Build table of contents page for each Chapter
-// feth qs one by one
-// implement algorithm for tracking
