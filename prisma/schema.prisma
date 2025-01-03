@@ -10,33 +10,19 @@ datasource db {
 model Chapter {
   id        String      @id @default(uuid())
   name      String
-  Questions Questions[]
+  questions Questions[]
 }
 
 model Questions {
-  id         String       @id @default(uuid())
-  chapterId  String
-  chapter    Chapter      @relation(fields: [chapterId], references: [id])
-  content    String
-  answers    Answer[]
-  categories Categories[]
+  id        String  @id @default(uuid())
+  chapterId String
+  chapter   Chapter @relation(fields: [chapterId], references: [id])
+  content   String
+  category  String
+  answer    String
+  options   Json
 
   ExercisePerformance ExercisePerformance[]
-}
-
-model Answer {
-  id          String    @id @default(uuid())
-  Questions   Questions @relation(fields: [questionsId], references: [id])
-  questionsId String
-  content     String
-  isCorrect   Boolean
-}
-
-model Categories {
-  id          String    @id @default(uuid())
-  name        String
-  Questions   Questions @relation(fields: [questionsId], references: [id])
-  questionsId String
 }
 
 model ExercisePerformance {
